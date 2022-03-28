@@ -7,5 +7,5 @@ module.exports = {
     extend: {},
   },
   darkMode: "medila", // class
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
