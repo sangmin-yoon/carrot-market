@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 
 const Upload: NextPage = () => {
   return (
-    <div className="px-4 py-16">
+    <div className="px-4 space-y-5 py-10">
       <div>
         <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 py-6 h-48 rounded-md">
           <svg
@@ -23,7 +23,23 @@ const Upload: NextPage = () => {
           <input className="hidden" type="file" />
         </label>
       </div>
-      <div className="my-5">
+      <div>
+        <label
+          htmlFor="name"
+          className="mb-1 block text-sm font-medium text-gray-700"
+        >
+          Name
+        </label>
+        <div className="rounded-md flex items-center relative shadow-sm">
+          <div className="absolute left-0 pointer-events-none pl-3 flex items-center justify-center"></div>
+          <input
+            id="name"
+            className="appearance-none pl-7 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+            type="text"
+          />
+        </div>
+      </div>
+      <div>
         <label
           htmlFor="price"
           className="mb-1 block text-sm font-medium text-gray-700"
@@ -46,10 +62,14 @@ const Upload: NextPage = () => {
         </div>
       </div>
       <div>
-        <label className="mb-1 block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="description"
+          className="mb-1 block text-sm font-medium text-gray-700"
+        >
           Description
         </label>
         <textarea
+          id="description"
           className="mt-1 shadow-sm w-full  focus:ring-orange-500 rounded-md border-gray-300 focus:border-orange-500 resize-none"
           rows={4}
         />
