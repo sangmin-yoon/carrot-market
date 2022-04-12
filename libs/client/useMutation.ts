@@ -18,7 +18,7 @@ export default function useMutaion(url: string): UseMutaionResult {
     fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "applicatioin/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     })
