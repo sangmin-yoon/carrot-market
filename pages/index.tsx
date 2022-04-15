@@ -6,7 +6,7 @@ import Item from "../components/item";
 import Layout from "../components/layout";
 
 const Home: NextPage = () => {
-  const user = useUser();
+  const { user, isLoading } = useUser();
   console.log(user);
 
   return (
