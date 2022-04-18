@@ -57,5 +57,5 @@ async function handler(
 export default withHandler({
   method: "POST",
   handler,
-  isPrivata: false,
+  isPrivate: false,
 });

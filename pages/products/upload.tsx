@@ -3,7 +3,10 @@ import Input from "@components/input";
 import Layout from "@components/layout";
 import TextArea from "@components/textarea";
 import useMutaion from "@libs/client/useMutation";
+import { Product } from "@prisma/client";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 interface UploadProductForm {
@@ -12,13 +15,26 @@ interface UploadProductForm {
   description: string;
 }
 
+interface UploadProductMutation {
+  ok: boolean;
+  product: Product;
+}
+
 const Upload: NextPage = () => {
+  const router = useRouter();
   const { register, handleSubmit } = useForm<UploadProductForm>();
-  const [uploadProduct, { loading, data }] = useMutaion("/api/products");
+  const [uploadProduct, { loading, data }] =
+    useMutaion<UploadProductMutation>("/api/products");
   const onVaild = (data: UploadProductForm) => {
     if (loading) return;
     uploadProduct(data);
   };
+
+  useEffect(() => {
+    if (data?.ok) {
+      router.push(`/products/${data.product.id}`);
+    }
+  });
 
   return (
     <Layout canGoBack title="Upload Product">
